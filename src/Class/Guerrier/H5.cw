@@ -1,0 +1,5 @@
+MOV 0, 7
+MOV 0, 7
+MOV 0, 7
+MOV 0, 7
+MOV 0, 7

@@ -1,0 +1,10 @@
+paquetage Main.java
+paquetage core
+paquetage fenetre
+paquetage codeEditor
+paquetage controller
+paquetage infoDisplayer
+paquetage instruction
+paquetage memoryDisplay
+paquetage traduction
+paquetage tournois

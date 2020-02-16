@@ -1,0 +1,140 @@
+	
+			Core Wars :    How To Play
+
+
+      Bienvenue dans la documentation explicite de la version de Core Wars que nous avons voulu implémenter. Vous y trouverez une explication de l’ensemble des instructions mais aussi des modes d’adressages  pouvant être executer.
+Enfin , nous préciserons particulierement les combinaisons Instructions – Mode d’adressage possibles ou interdites.
+
+Attention à bien lire cette documentation pour ne pas commettre d’erreur de Syntaxe !
+
+
+
+
+
+Dans la version de RedCode 84 , les modes d’adressages sont :
+
+Immédiat  #   :  Le nombre suivant ce symbole est l’argument. 
+
+Relatif <vide>:  L’argument sera le nombre mis en entrée plus l’indice de l’instruction courante. Cela correspond donc à un décalage par rapport à l’instruction courante.
+
+Indirect     @ :  Le nombre suivant ce symbole spécifie un décalage par rapport à l’instruction courante , réferant à l’endroit ou l’ adresse se trouve. On prendra automatiquement l’adresse immediate. Ainsi , nous avons convenu que pour la calculer cela revient à additionner l’indice de l’adresse courante  avec le nombre passé en argument plus le nombre suivant le symbole (quel qui soit) dans cette « adresse decalé « . 
+ 
+
+
+
+
+
+
+A présent voici , les Instructions ainsi que les combinaisons possibles à utiliser : 
+
+DAT #A         : valeur numérique qui est stocké , permets de tuer  le process.
+
+MOV @_A   @_B  : copie la valeur de l’adresse A dans l’adresse B
+
+JMP _A         : L’éxecution continue à l’adresse A 
+
+JMZ _A   @_#B  : L’éxecution continue à l’adresse A uniquement si  B vaut 0.
+
+JMN _A   @_#B  : L’éxecution continue à l’adresse A  uniquement si B ne vaut pas 0.
+
+ADD #A  @_B    : On ajoute l’argument A à B.
+
+MUL #A @_B     : On multiplie l’argument A à B.
+
+DIV #A @_B     : On divise l’argument A à B.
+
+SUB #A @_B     : On soustrait l’argument A à B.
+
+MOD #A @_B     : On fait A modulo B à B.
+ 
+NOP            : non utilisable , ce n’est pas une operation, ne fais rien, c’est l’instruction « erreur ».
+
+SEQ #_@A #_@B  : Saute la prochaine instruction seulement si l’argument A est egal à l’argument B.
+
+SNE #_@A #_@ B : Saute la prochaine instruction seulement si l’argument A n’est pas egal à l’argument B.
+
+SLT #_@A #_@ B : Saute la prochaine instruction seulement si l’argument A  est inferieur strictement à l’argument B.
+
+CMP #_@A #_@B  : Saute la prochaine instruction seulement si l’argument A  est egal à l’argument B.
+
+DJN #_@A #_@B  : Si l’argument B vaut 0 alors l’execution se poursuit à : l’argument A – 1 , sinon on continue l’execution normalement
+
+
+Ainsi , pour un total de 16 instructions (redCode 84) votre imagination pour établir le Guerrier le plus redoutable ! Bon jeu !
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spécifications RedCode 94
+
+Toutes les instructions sont de la forme : Instruction.Type A, B
+
+A et B étant composés chacun d'un type d'adressage et d'un nombre noté n.
+
+Les types d'adressages sont au nombre de 7 :
+	"n" : relatif 	       renvoie vers la case situé n rangs plus loin
+	"#n" : immédiat        renvoie le nombre n
+	"@n" : indirect	       renvoie vers la case situé à n+n.A rangs plus loin et valable uniquement si la case situé au rang n est un DAT
+	"<n" : relatif avec pré-décrémentation de n
+	">n" : relatif avec pré-incrémentation de n
+	"{n" : relatif avec post-décrémentation de n
+	"}n" : relatif avec post-incrémentation de n
+
+
+
+Il existe 8 type d'instruction :
+	none : renvoie à un autre type, généralement celui qui correspond à la version 84
+	.A : le champ A de l'instruction visée par le champ A et celle du champ B
+	.B : le champ B de l'instruction visée par le champ A et celle du champ B
+	.AB : le champ A de l'instruction visée par le champ A et le champ B de l'instruction visée par le champ B
+	.BA : le champ B de l'instruction visée par le champ A et le champ A de l'instruction visée par le champ B
+	.F : revient à faire un .A et un .B en une seule fois et avec une seule crémentation
+	.X : revient à faire un .AB et un .BA en une seule fois et avec une seule crémentation
+	.I : Travail sur l'instruction globale.
+
+
+Il existe 16 instructions implémentées :
+	NOP : non éxécutable
+	DAT : non éxécutable
+
+	Accepte tout les types:
+	MOV : déplace du champ A au champ B || none équivaut à un I
+	CMP : saute l'instruction suivante si A==B
+	SEQ : saute l'instruction suivante si A==B
+	SNE : saute l'instruction suivante si A!=B
+	SLT : saute l'instruction suivante si A<B
+	
+
+	Accepte tout les types sauf I:
+	MUL : multiplie le champ A au champ B dans le champ B || none équivaut à un A
+	ADD : additionne le champ A au champ B dans le champ B || none équivaut à un A
+	SUB : soustrait le champ A au champ B dans le champ B || none équivaut à un A
+	MUL : module le champ A au champ B dans le champ B || none équivaut à un A || erreur si A=0
+	DIV : quotiente le champ A au champ B dans le champ B || none équivaut à un A || erreur si A=0
+	
+
+	Type A ou B uniquement: 
+	JMP : Saute en A
+	JMZ : Saute en A si le champ B dirige vers la valeur 0
+	JMN : Saute en A si le champ B ne dirige pas  vers la valeur 0
+	DJN : Saute en A si le champ B est différent de 0 après décrémentation
+
+
+
+
+
+
+
+
+
+

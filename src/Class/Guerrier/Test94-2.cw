@@ -1,0 +1,14 @@
+JMP 5, 0
+DAT 1, 1
+DAT 2, 3
+DAT 2, 3
+DAT 3, 4
+ADD.F @-4, -3
+ADD.X -4, -3
+SUB.F <-2, -4
+MUL.X -5, }-4  
+DIV.X @-6, -5     
+MOD.F -6, -7 
+CMP.I 1, -8    
+DAT 2, 3
+MOV.I 0, 1

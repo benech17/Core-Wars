@@ -1,0 +1,68 @@
+package instruction;
+
+import traduction.RedCodeException;
+
+public abstract class Instruction {
+	private int op1ad;
+	private int op1;
+	private int op2ad;
+	private int op2;
+
+	
+	public int getAdMode1() {
+		return op1ad;
+	}
+	
+	public int getArg1() {
+		return op1;
+	}
+	public  void setArg1(int a){
+		op1=a;
+	}
+	public int getAdMode2() {
+		return op2ad;
+	}
+	
+	public int getArg2() {
+		return op2;
+	}
+	
+	public Instruction(int a, int b, int c, int d) {
+		op1ad=a;
+		op1=b;
+		op2ad=c;
+		op2=d;
+		estValide();
+	}
+	
+	public abstract boolean estValide() throws RedCodeException;// vérifie la cohérence des arguments
+		
+	public String toString() {
+		String a="";
+		switch (op1ad) {
+		case 1:a+=" ";break;
+		case 2:a+=" #";break;
+		case 3:a+=" @";break;
+        case 4:a+=", <";break;
+		case 5:a+=", >";break;
+		case 6:a+=", {";break;
+		case 7:a+=", }";break;
+		default: System.exit(op1ad);//  Instruction non valide
+		}
+		a+=Integer.toString(op1);
+		if (op2ad==1 || op2ad==2 || op2ad==3) {
+			switch(op2ad) {
+			case 1:a+=", ";break;
+			case 2:a+=", #";break;
+			case 3:a+=", @";break;
+            case 4:a+=", <";break;
+			case 5:a+=", >";break;
+			case 6:a+=", {";break;
+			case 7:a+=", }";break;
+			}
+			a+=Integer.toString(op2);
+		}
+		return a;
+	}
+
+}
