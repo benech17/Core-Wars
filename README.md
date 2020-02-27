@@ -1,58 +1,35 @@
+# Core War
+Core War is a programming game where assembly programs try to destroy each other in the memory of a simulated computer. The programs (or warriors) are written in a special language called Redcode, and run by a program called MARS (Memory Array Redcode Simulator).
+
+Both Redcode and the MARS environment are much simplified and abstracted compared to ordinary computer systems. This is a good thing, since CW programs are written for performance, not for clarity. If the game used an ordinary assembly language, there might be two or three people in the world capable of writing an effective and durable warrior, and even they wouldn't probably be able to understand it fully. It would certainly be challenging and full of potential, but it'd probably take years to reach even a moderate level of skill. 
+
+More informations at [Core War guide ](http://vyznev.net/corewar/guide.html "Core War tutorial")
+
 # How to use : Core War
 
-Sommaire :
-0) Lancer le programme
-1) Les fichiers et repertoires
-2) Ecrire du redcode
-3) préparer le core
-4) charger ses codes dans le core
-5) Lancer le run
-6) Sauvegader vos codes
-7) Les modes de run
+## Lancer le programme
+Ces deux scripts bash permettent dans un premier temps de  compiler les fichiers .java contenus dans le repertoire "Code/" et génère les .class dans le repertoire "Class/" puis dans un second temps de lancer l'execution du programme. \
+`$ ./compile.sh && ./execute.sh `
 
----------------------------------
+## Implementer un warrior en redcode
+Commencez par ajouter un nouvel onglet de saisie : allez dans "Fichier"->"Nouveau Programme" puis donnez un nom à votre warrior.
+ Une fois l'onglet créé, vous avez 2 options :
+  * écrire un nouveau code en RedCode 94.
+    * Pour comprendre quelle version précise de RedCode nous avons choisis d'implementer,veuillez vous réferer au fichier "SpecificationsRedcode.txt" .
+    * Dans ce cas, vous pouvez le sauvegarder afin de le retrouver lors d'une autre game. 
+  * importer un code déjà écrit, pour cela cliquez dans la barre d'outils sur le bouton **"IMPORTER"** puis selectionnez le fichier contenant votre code. Il est alors affiché dans votre nouvel onglet de saisie.
+ 
 
-## 0. Lancer le programme
-	En ligne de commande,on compile d'abord avec l'executable "compile.sh" puis on lance l'executable "execute.sh".
+## Préparer le core
+On définit la taille de la mémoire, le nombre de gagnants à la fin d'un run ou encore la version de RedCode(84 ou 94) dans l'onglet **Core**
 
+## Charger ses codes dans le core
+  Pour chaque warrior implémenté, nous devons le lancer dans le core et pour cela,on clique sur **"charger"** 
+  Ensuite, donnez une couleur d'affichage dans le core à votre warrior.
 
-## 1. Les fichiers et repertoires
-    Le repertoire principale est "src/", il contient deux repertoires :
-	) Le repertoire "code/" : Il contient tous les fichiers de code (.java).
-	) Le repertoire "Class/" : Il contient tous les fichier .class générer lors de la compilations des fichiers .java. par "compile.sh".
-	
-    On retrouve aussi deux executables:
-	) Le fichier "compile.sh" : Contient un script bash qui lance la compilation des fichiers de codes java (.java) contenus dans le repertoire "code/" et génere les fichiers    .class dans le repertoire "Class/".
-	) Le fichier "execute.sh" : Il contient un script bash qui lance l'execution du programme.
-
-
-
-## 2. Ecrire du redcode
-    - Commencez par ajouter un nouvel onglet de saisie : allez dans "Fichier"->"Nouveau Programme" puis donnez un nom à votre programme.
-	- Une fois l'onglet créé, vous avez 2 options :
-	   	- écrire un nouveau code en RedCode 94.
-		- importer un code déjà écrit, pour cela cliquez dans la barre d'outils sur le bouton "IMPORTER" puis selectionnez le fichier contenant votre code. Il est alors affiché dans votre nouvel onglet de saisie.
-
-
-## 3. préparer le core
-	- definir la taille de la mémoire : menu "Core"->"Taille de la mémoire"
-	- definir le nombre de gagnant : menu "Core"->"Nombre de gagnants. c'est le nombre de programme restant dans le core à la fin d'un run.
-	- definir la version de redcode utilisée : menu "Core"->"Version de redcode"
-
-## 4. charger ses codes dans le core
-	Pour charger un de vos code dans le core, cliquez sur le bouton "CHARGER" de la barre d'outil après avoir selectionné l'onglet du code que vous voulez charger.
-	Ensuite, donnez une couleur d'affichage à votre programme.
-
-## 5. Lancer le run
-	Une fois tous vos programmes chargés et votre core prèt, vous pouvez lancer le run en cliquant sur le bouton "RUN" de la barre d'outil.
-
-
-## 6. Sauvegader vos codes
-	Pour sauvegarder un code, selectionner son onglet, puis cliquer sur le bouton "SAUVEGARDER" de la barre d'outil et selectionnez l'emplacement où le sauvegarder.
-
-
-## 7. Les modes de run
-	Il y a 3 mode de run :
-		NORMAL : Les instructions s'execute une à une avec une vitesse controllée par le slide vitesse.
-		ANALYSE : Les instructions sont executées à chaque clic sur le bouton "SUIVANT" de la barre d'outil.
-		FAST : Les instructions sont executées avec la vitesse maximale de la machine.
+## Lancer le run
+Une fois tous vos programmes chargés et votre core prèt, vous pouvez lancer le run en cliquant sur le bouton "RUN" de la barre d'outil.
+Il y a 3 modes de run :
+ *  NORMAL : Les instructions s'execute une à une avec une vitesse controllée par le slide vitesse.
+ *  ANALYSE : Les instructions sont executées à chaque clic sur le bouton "SUIVANT" de la barre d'outil.
+ *  FAST : Les instructions sont executées avec la vitesse maximale de la machine.
