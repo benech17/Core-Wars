@@ -15,7 +15,7 @@ Ces deux scripts bash permettent dans un premier temps de  compiler les fichiers
 Commencez par ajouter un nouvel onglet de saisie : allez dans "Fichier"->"Nouveau Programme" puis donnez un nom à votre warrior.
  Une fois l'onglet créé, vous avez 2 options :
   * écrire un nouveau code en RedCode 94.
-    * Pour comprendre quelle version précise de RedCode nous avons choisis d'implementer,veuillez vous réferer au fichier "SpecificationsRedcode.txt" .
+    * Pour comprendre quelle version précise de RedCode nous avons choisis d'implementer,veuillez vous réferer à [ce fichier](SpécificationsRedcode.txt).
     * Dans ce cas, vous pouvez le sauvegarder afin de le retrouver lors d'une autre game. 
   * importer un code déjà écrit, pour cela cliquez dans la barre d'outils sur le bouton **"IMPORTER"** puis selectionnez le fichier contenant votre code. Il est alors affiché dans votre nouvel onglet de saisie.
  
